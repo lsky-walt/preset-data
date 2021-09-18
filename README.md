@@ -60,14 +60,16 @@ plugins: [
 interface Option extends axios.AxiosRequestConfig {
   name: string;
   cb?: (responseData: any) => data:any;
+  raw?: any;
 }
 new PresetDataPlugin(options: (Option | Option[]))
 ```
 
-| Name | Type     | Default | Description                                      |
-| :--- | :------- | :------ | :----------------------------------------------- |
-| name | string   | null    | 预设数据名称，用于项目中取值。注意，该字段必填。 |
-| cb   | function | null    | 处理数据                                         |
+| Name | Type     | Default | Description                                                   |
+| :--- | :------- | :------ | :------------------------------------------------------------ |
+| name | string   | null    | 预设数据名称，用于项目中取值。注意，该字段必填。              |
+| cb   | function | null    | 处理数据                                                      |
+| raw  | any      | null    | 如设置了 raw，将不通过 request 获取数据。注意，该优先级较高。 |
 
 ### 项目中使用预设数据
 
